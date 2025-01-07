@@ -124,6 +124,12 @@ This method ensured that missing values were replaced with accurate approximatio
 The OCR process introduced errors in numeric fields, including extra digits, missing digits, or misplaced values. These issues were identified and corrected by manually comparing the extracted data to the original PDFs. Decimal separators were standardized to use a period (.). Additionally, traffic counts from certain years were scaled by multiplying by 1,000 to align with datasets recorded in different units.
 
 ### 3.5. Grouping by Canton and Zones
+Each station was assigned to a specific canton and zone based on its location and coordinates. Siccome la svizzera ha un totale di 26 Cantoni i quali sono troppi per realizzare l'animazione iniziale, si è deciso di unire alcuni cantoni assieme arrivando ad un totale di 16 zone: Vaud, Ginevra, Neuchatel, Friburgo, Vallese, Bern, Soletta, Basilea, Agrovia, Zurich, Sciaffusa, Central Cantons [Lucerna, Obvaldo, Nidvaldo,Uri, Svitto], Ticino, Grigioni, San Gallo [San Gallo, Appenzello IN,Appenzello Out], Turgovia and Sciaffusa. 
+
+This allowed for regional analysis at both the canton and zone levels. Two additional datasets 
+were created:
+- A summary of traffic data grouped by canton.
+- A dataset grouping stations into predefined zones for more detailed analysis.
 
 
 
