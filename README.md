@@ -4,7 +4,7 @@ Teacher Giovanni Profeta
 
 
 # Ticino's Traffic
-Authors: [Sergio Fernandez Diz](https://github.com/giovannipro), [Mirko Keller](https://github.com/giovannipro), [Alessandro Carnio](https://github.com/giovannipro)
+Authors: [Sergio Fernandez Diz](https://github.com/SergioFernandezDiz), [Mirko Keller](https://github.com/giovannipro), [Alessandro Carnio](https://github.com/giovannipro)
 
 [Ticino's Traffic](https://dataviz-supsi.github.io/2024/template/)
 
