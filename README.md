@@ -41,18 +41,19 @@ As explained earlier, the dataset consists of a total of 61 files, of which 11 w
 ## 3. Data pre-processing
 
 ### 3.1 Trasforming PDF Files into Tables
-Dopo aver richiesto il dataset completo con tutti gli anni tramite l'indirizzo email presente sul sito, ci sono stati consegnati un totale di 11 su 61 in formato PDF, ecco un esempio:
+After requesting the complete dataset for all years via the email address available on the website, we received a total of 11 out of 61 files in PDF format. Below is an example:
 
 ![image](https://github.com/user-attachments/assets/4d4f25a1-5129-4703-a895-8e0bd8fab0dd)
 
-In modo da poter utilizzando i dati presenti in questi files si sono dovuti realizzare i seguenti passi:
+To work with the data contained in these PDF files, the following steps were performed:
+
 - PDFs were first converted into high-resolution images using [pdf2image](https://pypi.org/project/pdf2image/).
 - Text was extracted from these images using OCR software [Tesseract](https://github.com/tesseract-ocr).
 - From the extracted text, we focused on the MO-SO row, representing total weekly traffic, to maintain consistency across datasets.
 
 Due to the limitations of OCR, many numbers were extracted with errors, such as extra digits, missing digits, or misplaced values in the wrong cells. To address this, the extracted data was manually verified against the original PDFs, and corrections were made to ensure consistency and accuracy.
 
-A seguire vi è la funzione utilizzata per estrarre il testo da una singola immagine usando Tesseract, questa funzione viene poi utilizzata all'interno di **process_folder()** in modo da processare l'intera cartella con all'interno tutte le immagini di un singolo anno. Come potete notare il tutto viene realizzato utilizzando la funzione **extract_table()** la quale restituisce la tabella all'interno dell'immagine in formato **Pandas_df**.
+Below is the function used to extract text from a single image using Tesseract. This function is then used within **process_folder()** to process the entire folder containing all the images for a given year. As you can see, the process is performed using the **extract_table()** function, which returns the table within the image in the **Pandas_df** format.
 
 ```Python
 def process_image(image_filename, image_folder, output_folder):
@@ -71,6 +72,74 @@ def process_image(image_filename, image_folder, output_folder):
         logger.error(f"Error processing {image_filename}: {str(e)}")
 
 ```
+### 3.2 Standardizing Formats
+After extracting tables from the various PDF files, several issues needed to be addressed.
+
+One of the primary issues was the incorrect recognition of station names by the OCR used to extract text from the images. For example, some station names were misinterpreted and stored as: [COLOVRE>, GENÃ^VE, HÃ,,GENDO, ZAceRICH]. As evident, these errors stemmed from OCR misreadings of the station names.
+To resolve this, given that each of the 11 files contained 400 rows, we utilized **thefuzz**, a Python library designed for fuzzy string matching. This library allows for comparison and matching of strings with minor discrepancies, such as spelling errors or slight variations. By comparing the OCR-extracted station names with the correct reference names, we were able to correct these errors and ensure consistency in the station names across all files.
+Here is the code that was used:
+
+```Python
+# Iterate through each CSV file in the input folder
+for filename in os.listdir(input_folder):
+    if filename.endswith('.csv'):
+        filepath = os.path.join(input_folder, filename)
+        print(f'Processing {filename}...')
+
+        # Load the CSV file
+        df = pd.read_csv(filepath)
+
+        if 'Name' not in df.columns:
+            print(f"The file {filename} does not contain the 'Name' column. Skipping this file.")
+            continue
+
+        # Convert the 'Name' column to string and uppercase to ensure proper processing
+        df['Name'] = df['Name'].astype(str).str.upper()
+
+        # Apply name correction
+        df['Name'] = df['Name'].apply(lambda x: correct_name(x, official_names, threshold=75))
+
+        # Save the updated CSV file to the output folder
+        output_path = os.path.join(output_folder, filename)
+        df.to_csv(output_path, index=False,
+                  encoding='utf-8-sig')  # Use 'utf-8-sig' to maintain compatibility with Excel
+        print(f'{filename} updated and saved to {output_folder}')
+```
+
+Using this code, for each name in the file, the `process` and `fuzz` functions from the **thefuzz** library are applied to correct them.
+
+In addition to this, a standard format has been set for the dataset to avoid inconsistencies across the different years.
+
+![image](https://github.com/user-attachments/assets/55f75e34-99d1-4fea-9f6e-ac81e7c9dd86)
+
+
+### 3.3 Handling Missing and Invalid Data
+The handling of missing values was carried out following a structured approach to avoid introducing errors into the dataset:
+- If the Annual Mean column was available for a station, missing monthly values were replaced with the annual mean.
+- If the Annual Mean was unavailable, the mean of the existing monthly values for that station was calculated and used.
+
+This method ensured that missing values were replaced with accurate approximations based on the available data.
+
+### 3.4 Data Cleaning and Normalization
+The OCR process introduced errors in numeric fields, including extra digits, missing digits, or misplaced values. These issues were identified and corrected by manually comparing the extracted data to the original PDFs. Decimal separators were standardized to use a period (.). Additionally, traffic counts from certain years were scaled by multiplying by 1,000 to align with datasets recorded in different units.
+
+### 3.5. Grouping by Canton and Zones
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## Data visualizations
 Sed enim ut sem viverra aliquet eget sit. Iaculis at erat pellentesque adipiscing commodo. Et pharetra pharetra massa massa ultricies mi quis hendrerit dolor. At tempor commodo ullamcorper a lacus vestibulum sed arcu. Ipsum faucibus vitae aliquet nec ullamcorper sit. Tempus quam pellentesque nec nam aliquam sem et tortor. Turpis egestas sed tempus urna et pharetra pharetra massa. Ridiculus mus mauris vitae ultricies leo integer malesuada nunc vel.
