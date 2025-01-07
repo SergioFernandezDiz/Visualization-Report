@@ -48,14 +48,28 @@ Dopo aver richiesto il dataset completo con tutti gli anni tramite l'indirizzo e
 In modo da poter utilizzando i dati presenti in questi files si sono dovuti realizzare i seguenti passi:
 - PDFs were first converted into high-resolution images using [pdf2image](https://pypi.org/project/pdf2image/).
 - Text was extracted from these images using OCR software [Tesseract](https://github.com/tesseract-ocr).
+- From the extracted text, we focused on the MO-SO row, representing total weekly traffic, to maintain consistency across datasets.
 
+Due to the limitations of OCR, many numbers were extracted with errors, such as extra digits, missing digits, or misplaced values in the wrong cells. To address this, the extracted data was manually verified against the original PDFs, and corrections were made to ensure consistency and accuracy.
 
+A seguire vi è la funzione utilizzata per estrarre il testo da una singola immagine usando Tesseract, questa funzione viene poi utilizzata all'interno di **process_folder()** in modo da processare l'intera cartella con all'interno tutte le immagini di un singolo anno. Come potete notare il tutto viene realizzato utilizzando la funzione **extract_table()** la quale restituisce la tabella all'interno dell'immagine in formato **Pandas_df**.
 
 ```Python
-import pandas as pd
+def process_image(image_filename, image_folder, output_folder):
+    image_path = os.path.join(image_folder, image_filename)
+    logger.info(f"Processing image: {image_path}")
 
-df = pd.read_csv('file.tsv', sep='\t')
-print(df.columns)
+    try:
+        table_df = extract_table(image_path)
+        if not table_df.empty:
+            output_csv = os.path.join(output_folder, f"{os.path.splitext(image_filename)[0]}.csv")
+            table_df.to_csv(output_csv, index=False)
+            logger.info(f"Saved table to {output_csv}")
+        else:
+            logger.warning(f"No data found in image: {image_filename}")
+    except Exception as e:
+        logger.error(f"Error processing {image_filename}: {str(e)}")
+
 ```
 
 ## Data visualizations
