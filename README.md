@@ -6,15 +6,28 @@ Teacher Giovanni Profeta
 # Ticino's Traffic
 Authors: [Sergio Fernandez Diz](https://github.com/SergioFernandezDiz), [Mirko Keller](https://github.com/giovannipro), [Alessandro Carnio](https://github.com/giovannipro)
 
-[Ticino's Traffic](https://dataviz-supsi.github.io/2024/template/)
+[Ticino's Traffic](https://ticinotraffic-1015398445346.europe-west8.run.app/data.html)
 
 ## 1. Introduction
-Traffic congestion is a global issue affecting major cities and urban areas worldwide. With population growth and urban expansion, the number of vehicles on the roads has increased significantly over the past few decades. This phenomenon has led to a range of negative consequences, including traffic jams, air pollution, longer travel times, and an overall decrease in quality of life. The primary causes of this issue include rising household incomes, greater accessibility to cars, and urban planning that does not always optimally manage high traffic flows.
+
+Traffic congestion is a global issue that affects major cities and urban areas worldwide. With population growth and urban expansion, the number of vehicles on the roads has increased significantly over the past few decades. This phenomenon has led to a range of negative consequences, including traffic jams, air pollution, longer travel times, and an overall decrease in quality of life. The primary causes of this issue include rising household incomes, greater accessibility to cars, and urban planning that does not always optimally manage high traffic flows.
 
 The consequences of traffic congestion are not limited to economic impacts but also have environmental and social effects. Air pollution caused by vehicle emissions and the noise from traffic negatively affect human health and overall well-being. Furthermore, increased traffic can lead to road accidents, impacting public safety.
 
 ### 1.1 Objective
-The objective of our project is to analyze traffic in Switzerland, specifically in Ticino. Our goal is to identify patterns and areas with the highest traffic density. Additionally, we will examine traffic trends from 1963 to the present, both at the national level and more specifically for Ticino. This analysis is carried out with the aim of gaining a clear understanding of traffic patterns in Ticino, allowing us to study how traffic is distributed and how roadways can be optimized. The ultimate goal is to reduce traffic-related accidents and minimize pollution caused by vehicles stuck in traffic.
+
+The objective of this project is to analyze traffic patterns in Switzerland, specifically in Ticino. By examining traffic trends from 1963 to the present, both at the national level and within the Ticino region, we aim to identify areas with the highest traffic density and uncover key traffic patterns. Our goal is to understand how traffic is distributed across the region, how roadways can be optimized, and to identify potential solutions for reducing traffic congestion. 
+
+### 1.2 Research Questions
+
+The research focuses on answering the following questions:
+- What are the primary causes of traffic congestion in Ticino, and how have these causes evolved over time?
+- How can traffic data be collected and analyzed to identify patterns in traffic density across various regions of Ticino?
+- How have traffic trends in Ticino evolved over the past several decades?
+
+### 1.3 Target Readers
+
+This research is aimed at urban planners, traffic management professionals and researchers interested in transportation systems. It will also be valuable to local authorities and environmental agencies focusing on reducing pollution and improving road safety.
 
 ## 2. Dataset 
 ### 2.1 Dataset Source
@@ -146,13 +159,13 @@ The final dataset contained one row per traffic station with the following colum
 
 ### 3.7 Real-Time Dataset:
 
-In addition to the process of making the main dataset usable, we have also created a real-time dataset that gets updated with new values every 20 minutes. This dataset contains the average speed at specific coordinates along roads and highways, allowing us to track real-time traffic conditions in the Ticino region. The dataset is generated using an API from [TomTom](https://www.tomtom.com/), which, when provided with coordinates, returns the average speed and the maximum speed for that segment of the road. You can also specify the precision radius to reduce the number of requests needed.
+In addition to the process of making the main dataset usable, we have also created a real-time dataset that gets updated with new values every 30 minutes. This dataset contains the average speed at specific coordinates along roads and highways, allowing us to track real-time traffic conditions in the Ticino region. The dataset is generated using an API from [TomTom](https://www.tomtom.com/), which, when provided with coordinates, returns the average speed and the maximum speed for that segment of the road. You can also specify the precision radius to reduce the number of requests needed.
 
 This real-time dataset is created through the following process:
 
 1. **Initial Road Data**: An initial file containing road data, including coordinates, is downloaded using OpenStreetMap. This file includes specific road segments selected for traffic monitoring.
 
-2. **Traffic Data Update**: Every 20 minutes, the file is reopened. For each line (road segment) within the file, the API is called to gather traffic information for that particular point. The information collected includes the average speed, maximum speed, and speed limits. The updated traffic data is then saved to a new file, which is continually updated with the latest traffic conditions.
+2. **Traffic Data Update**: Every 30 minutes, the file is reopened. For each line (road segment) within the file, the API is called to gather traffic information for that particular point. The information collected includes the average speed, maximum speed, and speed limits. The updated traffic data is then saved to a new file, which is continually updated with the latest traffic conditions.
 
 With this dataset, we can visualize traffic information through a dynamic map like the one shown below:
 
@@ -211,4 +224,24 @@ def get_traffic_data(lat, lon):
     
     return traffic_data_points
 ```
+## Data visualizations
+In this project, a total of 6 visualizations were created, including maps, animations, bar plots, line plots, etc. To generate the various plots (bar plots/line plots), the JavaScript library **D3.js** was used. D3.js is a JavaScript library designed for creating interactive data visualizations on the web. It allows manipulation of HTML and SVG (Scalable Vector Graphics) documents based on dynamic data, enabling the creation of complex and interactive charts, such as diagrams, maps, scatter plots, histograms, and much more. The decision to use this library was made because it allows for fully custom visualizations, offering complete flexibility in design, though this increases the complexity compared to using tools that generate charts automatically.
 
+For the animation aspect, **Unity** was used. Unity is a software development platform primarily used for creating video games, interactive simulations, augmented reality (AR) experiences, 3D applications, and much more. Unity was chosen due to its robust capabilities in creating animations, offering a high degree of control over the visuals.
+
+### Switzerland's Traffic
+Accumsan lacus vel facilisis volutpat est velit egestas dui id. Quisque egestas diam in arcu cursus. Eget nulla facilisi etiam dignissim diam. Aenean sed adipiscing diam donec adipiscing tristique. Porttitor massa id neque aliquam. Sem viverra aliquet eget sit amet tellus cras. Scelerisque eu ultrices vitae auctor eu augue ut lectus.
+
+[<img src="assets/images/03.png" width="800" alt="Placeholder image">]()
+
+### Title of the data visualization n. 2
+Accumsan lacus vel facilisis volutpat est velit egestas dui id. Quisque egestas diam in arcu cursus. Eget nulla facilisi etiam dignissim diam. Aenean sed adipiscing diam donec adipiscing tristique. Porttitor massa id neque aliquam. Sem viverra aliquet eget sit amet tellus cras. Scelerisque eu ultrices vitae auctor eu augue ut lectus.
+
+[<img src="assets/images/04.png" width="800" alt="Placeholder image">]()
+
+
+## Key findings
+Accumsan lacus vel facilisis volutpat est velit egestas dui id. Quisque egestas diam in arcu cursus. Eget nulla facilisi etiam dignissim diam. Aenean sed adipiscing diam donec adipiscing tristique. Porttitor massa id neque aliquam. Sem viverra aliquet eget sit amet tellus cras. Scelerisque eu ultrices vitae auctor eu augue ut lectus. Nunc aliquet bibendum enim facilisis gravida neque convallis a. Lacus sed turpis tincidunt id aliquet risus feugiat.
+
+## Next steps
+Tellus rutrum tellus pellentesque eu. Dictum sit amet justo donec enim. Aliquam malesuada bibendum arcu vitae elementum curabitur vitae. Sed faucibus turpis in eu mi bibendum neque egestas congue. Tellus in metus vulputate eu scelerisque felis imperdiet proin. Dolor magna eget est lorem ipsum dolor. Sit amet mattis vulputate enim nulla. Elit pellentesque habitant morbi tristique senectus et.
