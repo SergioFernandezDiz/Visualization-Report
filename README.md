@@ -131,6 +131,81 @@ were created:
 - A summary of traffic data grouped by canton.
 - A dataset grouping stations into predefined zones for more detailed analysis.
 
+### 3.5 Dataset Integration
+Once cleaned and standardized, all 60 years of data were merged into a single unified dataset. 
+Consistency in column structures and naming conventions was ensured during integration. The 
+merged dataset was validated against official reference metadata, such as station lists, to verify 
+its accuracy.
+
+### 3.6 Final Dataset Structure
+The final dataset contained one row per traffic station with the following columns:
+- `Location`: The name of the area where the station is located.
+- `Measuring Station` : A unique identifier for each station.
+- `Monthly Traffic Counts`: Columns from January to December recording traffic volumes for each month.
+- `Annual Mean`: The yearly average traffic volume for each station.
+
+### 3.7 Real-Time Dataset:
+
+In addition to the process of making the main dataset usable, we have also created a real-time dataset that gets updated with new values every 20 minutes. This dataset contains the average speed at specific coordinates along roads and highways, allowing us to track real-time traffic conditions in the Ticino region. The dataset is generated using an API from [TomTom](https://www.tomtom.com/), which, when provided with coordinates, returns the average speed and the maximum speed for that segment of the road. You can also specify the precision radius to reduce the number of requests needed.
+
+This real-time dataset is created through the following process:
+
+1. **Initial Road Data**: An initial file containing road data, including coordinates, is downloaded using OpenStreetMap. This file includes specific road segments selected for traffic monitoring.
+
+2. **Traffic Data Update**: Every 20 minutes, the file is reopened. For each line (road segment) within the file, the API is called to gather traffic information for that particular point. The information collected includes the average speed, maximum speed, and speed limits. The updated traffic data is then saved to a new file, which is continually updated with the latest traffic conditions.
+
+With this dataset, we can visualize traffic information through a dynamic map like the one shown below:
+
+![image](https://github.com/user-attachments/assets/a69ee2b6-0656-4ef5-b2e6-aa4950a1aa31)
+
+
+### API Functionality:
+The TomTom API provides real-time traffic data and allows you to track road conditions based on specific coordinates. The API response includes key traffic details, such as:
+
+- **Average Speed**: The current speed at a specific point on the road.
+- **Speed Limits**: The maximum allowed speed for the road segment.
+- **Traffic Congestion**: The level of congestion, which is used to determine the current traffic condition.
+- **Precision Radius**: This feature allows you to specify a radius around the given coordinates, helping to optimize the number of requests made.
+
+### Dataset Creation Process:
+1. **OpenStreetMap**: The initial road data is extracted using OpenStreetMap, which provides detailed map data, including the coordinates of road segments.
+2. **API Integration**: After every 30 minutes, the dataset is updated by calling the TomTom API for each road segment, retrieving the current traffic speed, speed limits, and other relevant data.
+3. **Saving Data**: The traffic information for each segment is collected and saved into a new file, providing an up-to-date snapshot of the road conditions.
+
+### Code:
+Here is the Python code that implements the process for collecting traffic data from the API and saving it to the dataset:
+
+```python
+def get_traffic_data(lat, lon):
+    # Call the TomTom API to get the speed limits and traffic data
+    geojson_data = get_speedbox.get_speed_limits(lat, lon, size)
+    
+    traffic_data_points = []
+    
+    # Loop through the returned geojson data
+    for feature in geojson_data['features']:
+        if feature['geometry']['type'] == 'LineString':
+            coordinates = feature['geometry']['coordinates']
+            
+            # Get the speed limit from the feature properties
+            speed_limit = feature['properties'].get('maxspeed', None)
+            speed_limit = int(speed_limit) if speed_limit and speed_limit.isdigit() else 50
+            
+            # Get the center point of the road segment for traffic data
+            center_index = len(coordinates) // 2
+            center_point = (coordinates[center_index][1], coordinates[center_index][0])
+            
+            # Call the traffic API to get real-time traffic data at the center point
+            traffic_info = traffic.get_data(center_point)
+            
+            # Get the current speed if available
+            current_speed = float(traffic_info['current_speed']) if traffic_info and 'current_speed' in traffic_info else None
+            
+            # Append the traffic data point to the list
+            traffic_data_points.append({
+                'coordinates': coordinates,
+                'speed_limit': speed_limit
+
 
 
 
