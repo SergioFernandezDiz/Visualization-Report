@@ -23,7 +23,8 @@ The objective of this project is to analyze traffic patterns in Switzerland, spe
 The research focuses on answering the following questions:
 - What are the primary causes of traffic congestion in Ticino, and how have these causes evolved over time?
 - How does traffic fluctuate throughout the year, and how is it affected during holiday periods?
-- How have traffic trends in Ticino evolved over the past several decades?
+- How have traffic trends in Ticino and Switzerland evolved over the past several decades and what are the worse places?
+  
 
 ### 1.3 Target Readers
 
@@ -332,7 +333,20 @@ Real-Time Map Plot
 - **Scrollbar**: Allows the user to select a specific time on a given day, highlighting the differences in traffic patterns between morning, afternoon, and evening.
 
 ## Key findings
-Accumsan lacus vel facilisis volutpat est velit egestas dui id. Quisque egestas diam in arcu cursus. Eget nulla facilisi etiam dignissim diam. Aenean sed adipiscing diam donec adipiscing tristique. Porttitor massa id neque aliquam. Sem viverra aliquet eget sit amet tellus cras. Scelerisque eu ultrices vitae auctor eu augue ut lectus. Nunc aliquet bibendum enim facilisis gravida neque convallis a. Lacus sed turpis tincidunt id aliquet risus feugiat.
 
-## Next steps
-Tellus rutrum tellus pellentesque eu. Dictum sit amet justo donec enim. Aliquam malesuada bibendum arcu vitae elementum curabitur vitae. Sed faucibus turpis in eu mi bibendum neque egestas congue. Tellus in metus vulputate eu scelerisque felis imperdiet proin. Dolor magna eget est lorem ipsum dolor. Sit amet mattis vulputate enim nulla. Elit pellentesque habitant morbi tristique senectus et.
+Through this analysis, we have observed that both at the national level in Switzerland and at the Ticino level, the issue of traffic congestion continues to rise. We have also noticed that traffic in Ticino is heavily influenced by the presence of both tourists and cross-border workers, as well as by significant events like the Covid-19 pandemic.
+
+In terms of annual trends, we observed a sharp increase in traffic between June and August, largely due to the vacation period. This influx is driven by both local residents traveling and the many tourists who visit Ticino during the summer months.
+
+As for the most congested roads, the areas around Lugano and the A2 motorway, which leads to the San Gottardo Pass, experience the highest traffic volumes. The A2 serves as a key route for both daily commuters and tourists, contributing to its heavy traffic.
+
+## Next Steps
+
+During the execution of this project, we encountered several issues and limitations due to the dataset. Here are the main Next steps :
+
+- Due to the size of the different visualizations (**video** and **Real-Time Map**), we faced **loading issues**. We had difficulties creating the animation with higher resolution and also encountered problems with loading the **Real-Time Map**. One possible next step would be to resolve this issue by developing the project on a website that allows for better performance and smoother loading.
+  
+- Another important aspect would be to conduct a more **detailed analysis**, perhaps by finding a dataset that provides information about the **direction** in which the vehicles are moving. In our case, the stations only provided data on the vehicles passing through, but this wasn't sufficient for a more precise analysis of the traffic movements to determine the exact reasons behind the traffic volumes.
+
+- Regarding the **Real-Time Map**, which was created using a free **TomTom API**, it would be interesting to make it more detailed, offering a broader view. To do this, we would need another **paid API** that offers more daily requests and more detailed data.
+
