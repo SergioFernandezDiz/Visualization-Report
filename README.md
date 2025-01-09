@@ -62,7 +62,7 @@ To work with the data contained in these PDF files, the following steps were per
 
 - PDFs were first converted into high-resolution images using [pdf2image](https://pypi.org/project/pdf2image/).
 - Text was extracted from these images using OCR software [Tesseract](https://github.com/tesseract-ocr).
-- From the extracted text, we focused on the MO-SO row, representing total weekly traffic, to maintain consistency across datasets.
+- From the extracted text, we focused on the MO-SO row, representing daily weekly mean traffic, to maintain consistency across datasets.
 
 Due to the limitations of OCR, many numbers were extracted with errors, such as extra digits, missing digits, or misplaced values in the wrong cells. To address this, the extracted data was manually verified against the original PDFs, and corrections were made to ensure consistency and accuracy.
 
