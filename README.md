@@ -22,7 +22,7 @@ The objective of this project is to analyze traffic patterns in Switzerland, spe
 
 The research focuses on answering the following questions:
 - What are the primary causes of traffic congestion in Ticino, and how have these causes evolved over time?
-- Come è l'andamento del traffico in un anno e come quest'ultimo viene influenzato da periodi di vacanza?
+- How does traffic fluctuate throughout the year, and how is it affected during holiday periods?
 - How have traffic trends in Ticino evolved over the past several decades?
 
 ### 1.3 Target Readers
@@ -136,14 +136,6 @@ This method ensured that missing values were replaced with accurate approximatio
 ### 3.4 Data Cleaning and Normalization
 The OCR process introduced errors in numeric fields, including extra digits, missing digits, or misplaced values. These issues were identified and corrected by manually comparing the extracted data to the original PDFs. Decimal separators were standardized to use a period (.). Additionally, traffic counts from certain years were scaled by multiplying by 1,000 to align with datasets recorded in different units.
 
-### 3.5. Grouping by Canton and Zones
-Each station was assigned to a specific canton and zone based on its location and coordinates. Siccome la svizzera ha un totale di 26 Cantoni i quali sono troppi per realizzare l'animazione iniziale, si è deciso di unire alcuni cantoni assieme arrivando ad un totale di 16 zone: Vaud, Ginevra, Neuchatel, Friburgo, Vallese, Bern, Soletta, Basilea, Agrovia, Zurich, Sciaffusa, Central Cantons [Lucerna, Obvaldo, Nidvaldo,Uri, Svitto], Ticino, Grigioni, San Gallo [San Gallo, Appenzello IN,Appenzello Out], Turgovia and Sciaffusa. 
-
-This allowed for regional analysis at both the canton and zone levels. Two additional datasets 
-were created:
-- A summary of traffic data grouped by canton.
-- A dataset grouping stations into predefined zones for more detailed analysis.
-
 ### 3.5 Dataset Integration
 Once cleaned and standardized, all 60 years of data were merged into a single unified dataset. 
 Consistency in column structures and naming conventions was ensured during integration. The 
@@ -234,7 +226,7 @@ For the animation aspect, **Unity** was used. Unity is a software development pl
 ![image](https://github.com/user-attachments/assets/ebf98039-bf14-4f75-a59e-aa624d639f03)
 
 #### 1.1 Brief Description
-This animation displays the weekly average number of cars passing through various points within a specific region. Switzerland has been divided into 16 zones to prevent data visualization overload. This chart allows for the analysis of the average vehicle flow across different regions of Switzerland from 1963 to 2024. To generate this visualization, data from over 400 traffic counting stations scattered across the country's main roads and highways are used.
+This animation displays the daily average number of cars passing through various points within a specific region. Switzerland has been divided into 16 zones to prevent data visualization overload. This chart allows for the analysis of the average vehicle flow across different regions of Switzerland from 1963 to 2024. To generate this visualization, data from over 400 traffic counting stations scattered across the country's main roads and highways are used.
 
 The animation provides a clear view of how traffic patterns have evolved over the years in each zone, offering valuable insights into regional traffic dynamics and trends. Furthermore, it allows for the analysis of how traffic is influenced by various occurrences, such as crises, pandemics, and other significant events.
 
@@ -246,11 +238,12 @@ Animation with map plot + line plot
 
 #### 1.4 Involved variables:
 Map Plot
-- Numerical Variable, Color and Size -> Weekly average number of cars passing through a traffic counting station
+- Numerical Variable, Color and Size -> Daily average number of cars passing through a traffic counting station
 - Coordinates/Location -> Canton/Region of Switzerland
+  
 Line Plot
 - X-axis -> Year from 1963 to 2023
-- Y-axis -> Weekly average number of vehicles passing through all the stations in Switzerland
+- Y-axis -> Daily average number of vehicles passing through all the stations in Switzerland
 
 ### 2. Top busiest stations in Ticino
 
@@ -268,9 +261,9 @@ Animated Bar Plot + Map Plot
 #### 2.4 Involved Variables:
 
 **Map Plot**
-- Object -> Name of Station, Daily Vehicle Count
+- Hover(tooltip) -> Name of Station, Daily Vehicle Count
 - Coordinates/Location -> Station Position
-- Color/Size -> Daily Vehicle Count
+- Color/Size -> Daily Vehicle Count and position in the top 6 (`gray` = not present in the top)
 
 **Bar Plot:**
 - X-axis: Number of daily vehicle counts 
@@ -295,7 +288,7 @@ Line Plot
 **Line Plot:**
 - X-axis: Year from 1963 to 2023
 - Y-axis: Average number of vehicles passing through the counting stations
-- Mouse Position: Exact value of vehicles and year
+- Hover(tooltip): Exact value of vehicles and year
 
 
 ### 4. Ticino's Monthly Patterns
@@ -306,7 +299,7 @@ Line Plot
 This visualization shows the average daily vehicle count sampled for each month in the year 2023. Since the overall trend is quite linear, the top 6 counting stations are also included to allow comparison and see if certain areas are more influenced by holidays or festivities, while others may be affected by different factors.
 
 #### 4.2 Research Question
-How has traffic in Ticino evolved from 1963 to 2023? What have been the most significant increases and decreases in traffic?
+What are the main traffic patterns throughout the year in Ticino? How is traffic volume affected during holiday periods?
 
 #### 4.3 Type of Visualization: 
 Line Plot
