@@ -346,7 +346,7 @@ During the execution of this project, we encountered several issues and limitati
 
 - Due to the size of the different visualizations (**video** and **Real-Time Map**), we faced **loading issues**. We had difficulties creating the animation with higher resolution and also encountered problems with loading the **Real-Time Map**. One possible next step would be to resolve this issue by developing the project on a website that allows for better performance and smoother loading.
   
-- Another important aspect would be to conduct a more **detailed analysis**, perhaps by finding a dataset that provides information about the **direction** in which the vehicles are moving. In our case, the stations only provided data on the vehicles passing through, but this wasn't sufficient for a more precise analysis of the traffic movements to determine the exact reasons behind the traffic volumes.
+- Another important aspect would be to conduct a more **detailed analysis**, perhaps by finding a dataset that provides information about the **direction** in which the vehicles are moving. In our case, the stations only provided data on the vehicles passing through a specific place, but this wasn't sufficient for a more precise analysis of the traffic movements to determine the exact reasons behind the traffic volumes.
 
 - Regarding the **Real-Time Map**, which was created using a free **TomTom API**, it would be interesting to make it more detailed, offering a broader view. To do this, we would need another **paid API** that offers more daily requests and more detailed data.
 
