@@ -229,16 +229,114 @@ In this project, a total of 6 visualizations were created, including maps, anima
 
 For the animation aspect, **Unity** was used. Unity is a software development platform primarily used for creating video games, interactive simulations, augmented reality (AR) experiences, 3D applications, and much more. Unity was chosen due to its robust capabilities in creating animations, offering a high degree of control over the visuals.
 
-### Switzerland's Traffic
-Accumsan lacus vel facilisis volutpat est velit egestas dui id. Quisque egestas diam in arcu cursus. Eget nulla facilisi etiam dignissim diam. Aenean sed adipiscing diam donec adipiscing tristique. Porttitor massa id neque aliquam. Sem viverra aliquet eget sit amet tellus cras. Scelerisque eu ultrices vitae auctor eu augue ut lectus.
+### 1. Switzerland's Traffic
 
-[<img src="assets/images/03.png" width="800" alt="Placeholder image">]()
+![image](https://github.com/user-attachments/assets/ebf98039-bf14-4f75-a59e-aa624d639f03)
 
-### Title of the data visualization n. 2
-Accumsan lacus vel facilisis volutpat est velit egestas dui id. Quisque egestas diam in arcu cursus. Eget nulla facilisi etiam dignissim diam. Aenean sed adipiscing diam donec adipiscing tristique. Porttitor massa id neque aliquam. Sem viverra aliquet eget sit amet tellus cras. Scelerisque eu ultrices vitae auctor eu augue ut lectus.
+#### 1.1 Brief Description
+This animation displays the weekly average number of cars passing through various points within a specific region. Switzerland has been divided into 16 zones to prevent data visualization overload. This chart allows for the analysis of the average vehicle flow across different regions of Switzerland from 1963 to 2024. To generate this visualization, data from over 400 traffic counting stations scattered across the country's main roads and highways are used.
 
-[<img src="assets/images/04.png" width="800" alt="Placeholder image">]()
+The animation provides a clear view of how traffic patterns have evolved over the years in each zone, offering valuable insights into regional traffic dynamics and trends. Furthermore, it allows for the analysis of how traffic is influenced by various occurrences, such as crises, pandemics, and other significant events.
 
+#### 1.2 Research Question
+How has traffic flow evolved in Switzerland, and how is it affected by crises and pandemics?
+
+#### 1.3 Type of Visualization: 
+Animation with map plot + line plot
+
+#### 1.4 Involved variables:
+Map Plot
+- Numerical Variable, Color and Size -> Weekly average number of cars passing through a traffic counting station
+- Coordinates/Location -> Canton/Region of Switzerland
+Line Plot
+- X-axis -> Year from 1963 to 2023
+- Y-axis -> Weekly average number of vehicles passing through all the stations in Switzerland
+
+### 2. Top busiest stations in Ticino
+
+![image](https://github.com/user-attachments/assets/baaeaad9-8e76-4e13-9e9d-5613d397035c)
+
+#### 2.1 Brief Description
+This visualization shows the 6 busiest traffic counting stations in Ticino from 2003 to 2023. Additionally, by using a map to display the locations of these 6 stations in Ticino, we can analyze traffic patterns more specifically within the region. This allows us to identify patterns in traffic coming from the central part of Switzerland or from Italy. The visualization helps us understand whether the main source of traffic in Ticino comes from cross-border workers (frontaliers), local residents, or people traveling from the San Gottardo region (central Switzerland).
+
+#### 2.2 Research Question
+How has traffic in Ticino evolved from 2003 to 2023? Furthermore, is the traffic problem in Ticino solely due to the border with Italy, or is it also influenced by traffic from central Switzerland?
+
+#### 2.3 Type of Visualization: 
+Animated Bar Plot + Map Plot
+
+#### 2.4 Involved Variables:
+
+**Map Plot**
+- Object -> Name of Station, Daily Vehicle Count
+- Coordinates/Location -> Station Position
+- Color/Size -> Daily Vehicle Count
+
+**Bar Plot:**
+- X-axis: Number of daily vehicle counts 
+- Y-axis: Top 6 counting stations in Ticino
+- Color: Number of daily vehicle counts
+- Position: Shows the position in the Top 6
+
+### 3. Ticino's Traffic
+
+![image](https://github.com/user-attachments/assets/3a0596b8-5583-4de5-88d7-dc1672ac96ae)
+
+#### 3.1 Brief Description
+This visualization shows the traffic trends in Ticino from 1963 to 2023, displaying patterns and how they were influenced by phenomena such as COVID and economic crises.
+
+#### 3.2 Research Question
+How has traffic in Ticino evolved from 1963 to 2023? What have been the most significant increases and decreases in traffic?
+
+#### 3.3 Type of Visualization: 
+Line Plot
+
+#### 3.4 Involved Variables:
+**Line Plot:**
+- X-axis: Year from 1963 to 2023
+- Y-axis: Average number of vehicles passing through the counting stations
+- Mouse Position: Exact value of vehicles and year
+
+
+### 4. Ticino's Monthly Patterns
+
+![image](https://github.com/user-attachments/assets/6d2bb95d-f8df-4bf9-8009-21d862adb81f)
+
+#### 4.1 Brief Description
+This visualization shows the average daily vehicle count sampled for each month in the year 2023. Since the overall trend is quite linear, the top 6 counting stations are also included to allow comparison and see if certain areas are more influenced by holidays or festivities, while others may be affected by different factors.
+
+#### 4.2 Research Question
+How has traffic in Ticino evolved from 1963 to 2023? What have been the most significant increases and decreases in traffic?
+
+#### 4.3 Type of Visualization: 
+Line Plot
+
+#### 4.4 Involved Variables:
+**Line Plot:**
+- X-axis: Month of the year
+- Y-axis: Average number of vehicles passing through the counting stations daily
+- Color: Station Name
+
+
+### 5. Real-Time Traffic Map
+
+![image](https://github.com/user-attachments/assets/f91c2ff5-610b-4879-8229-dcc3920b933f)
+
+#### 5.1 Brief Description
+This map is created using the TomTom API and shows the average speed on a selected set of roads and highways in Ticino. The roads are color-coded from green to red based on the average speed compared to the maximum allowed speed for each segment. This visualization allows the user to select a historical day or view real-time traffic with updates every 30 minutes.
+
+#### 5.2 Research Question
+When thinking about traffic, is the problem always caused by the presence of vehicles, or could factors like the number of traffic lights in urban areas also contribute? How is the traffic in the main areas of Ticino on a daily basis?
+
+#### 5.3 Type of Visualization: 
+Real-Time Map Plot
+
+#### 5.4 Involved Variables:
+
+**Map Plot:**
+- **Map**: A map of Ticino showing the main roads and cities.
+- **Color**: The color gradient, from green to red, indicates how the average speed compares to the maximum allowed speed on each segment of the road.
+- **Scrollbar**: Allows the user to select a specific time on a given day, highlighting the differences in traffic patterns between morning, afternoon, and evening.
 
 ## Key findings
 Accumsan lacus vel facilisis volutpat est velit egestas dui id. Quisque egestas diam in arcu cursus. Eget nulla facilisi etiam dignissim diam. Aenean sed adipiscing diam donec adipiscing tristique. Porttitor massa id neque aliquam. Sem viverra aliquet eget sit amet tellus cras. Scelerisque eu ultrices vitae auctor eu augue ut lectus. Nunc aliquet bibendum enim facilisis gravida neque convallis a. Lacus sed turpis tincidunt id aliquet risus feugiat.
