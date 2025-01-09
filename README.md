@@ -16,18 +16,18 @@ The consequences of traffic congestion are not limited to economic impacts but a
 
 ### 1.1 Objective
 
-The objective of this project is to analyze traffic patterns in Switzerland, specifically in Ticino. By examining traffic trends from 1963 to the present, both at the national level and within the Ticino region, we aim to identify areas with the highest traffic density and uncover key traffic patterns. Our goal is to understand how traffic is distributed across the region, how roadways can be optimized, and to identify potential solutions for reducing traffic congestion. 
+The objective of this project is to analyze traffic patterns in Switzerland, specifically in Ticino. By examining traffic trends from 1963 to the present, both at the national level and within the Ticino region, we aim to identify areas with the highest traffic density, uncover key traffic patterns and to see how traffic change in the last 60 years. Our goal is to understand how traffic is distributed across the region, how roadways can be optimized, and to identify potential solutions for reducing traffic congestion. 
 
 ### 1.2 Research Questions
 
 The research focuses on answering the following questions:
 - What are the primary causes of traffic congestion in Ticino, and how have these causes evolved over time?
-- How can traffic data be collected and analyzed to identify patterns in traffic density across various regions of Ticino?
+- Come è l'andamento del traffico in un anno e come quest'ultimo viene influenzato da periodi di vacanza?
 - How have traffic trends in Ticino evolved over the past several decades?
 
 ### 1.3 Target Readers
 
-This research is aimed at urban planners, traffic management professionals and researchers interested in transportation systems. It will also be valuable to local authorities and environmental agencies focusing on reducing pollution and improving road safety.
+This research is aimed at urban planners, traffic management professionals and researchers interested in transportation systems. It will also be valuable to local authorities, environmental agencies focusing on reducing pollution and improving road safety and for normal people.
 
 ## 2. Dataset 
 ### 2.1 Dataset Source
