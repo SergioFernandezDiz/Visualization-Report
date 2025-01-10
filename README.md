@@ -4,7 +4,7 @@ Teacher Giovanni Profeta
 
 
 # Ticino's Traffic
-Authors: [Sergio Fernandez Diz](https://github.com/SergioFernandezDiz), Mirko Keller, [Alessandro Carnio](https://qlessqndr.github.io/)
+Authors: [Sergio Fernandez Diz](https://github.com/SergioFernandezDiz), Mirko Keller, [Alessandro Carnio](https://github.com/qlessqndr)
 
 [Ticino's Traffic](https://qlessqndr.github.io/ticinotraffic/ticinotraffic.html)
 
