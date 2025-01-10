@@ -6,7 +6,7 @@ Teacher Giovanni Profeta
 # Ticino's Traffic
 Authors: [Sergio Fernandez Diz](https://github.com/SergioFernandezDiz), [Mirko Keller](https://github.com/giovannipro), [Alessandro Carnio](https://github.com/giovannipro)
 
-[Ticino's Traffic](https://ticinotraffic-1015398445346.europe-west8.run.app/data.html)
+[Ticino's Traffic](https://qlessqndr.github.io/ticinotraffic/ticinotraffic.html)
 
 ## 1. Introduction
 
@@ -294,7 +294,7 @@ Line Plot
 
 ### 4. Ticino's Monthly Patterns
 
-![image](https://github.com/user-attachments/assets/6d2bb95d-f8df-4bf9-8009-21d862adb81f)
+![image](https://github.com/user-attachments/assets/e7329ddc-6704-47c3-a2a7-6251406c5a6f)
 
 #### 4.1 Brief Description
 This visualization shows the average daily vehicle count sampled for each month in the year 2023. Since the overall trend is quite linear, the top 6 counting stations are also included to allow comparison and see if certain areas are more influenced by holidays or festivities, while others may be affected by different factors.
@@ -314,7 +314,8 @@ Line Plot
 
 ### 5. Real-Time Traffic Map
 
-![image](https://github.com/user-attachments/assets/f91c2ff5-610b-4879-8229-dcc3920b933f)
+![image](https://github.com/user-attachments/assets/f353665a-ef40-4012-8858-4dfaede4474b)
+
 
 #### 5.1 Brief Description
 This map is created using the TomTom API and shows the average speed on a selected set of roads and highways in Ticino. The roads are color-coded from green to red based on the average speed compared to the maximum allowed speed for each segment. This visualization allows the user to select a historical day or view real-time traffic with updates every 30 minutes.
